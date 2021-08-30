@@ -37,7 +37,7 @@ export default {
 }
 .imgRefill {
   flex: 1 1 75%;
-  background-image: url("../../assets/images/side-image.jpg");
+  background-image: url("../../assets/images/sun-tornado.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -46,11 +46,15 @@ export default {
 @media (max-width: 768px) {
   .imgRefill {
     height: 500px;
+    background-image: none;
+    background-color: rgb(235, 224, 193);
   }
 }
 
 @media (max-width: 425px) {
   .imgRefill {
+    background-image: none;
+    background-color: rgb(235, 224, 193);
     height: 400px;
   }
 }
