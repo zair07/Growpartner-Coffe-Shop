@@ -69,6 +69,7 @@ export default {
   text-align: center;
   color: black;
   font-weight: 700;
+  font-size: 1.7rem;
 }
 
 .stockList {
@@ -77,7 +78,7 @@ export default {
   align-items: center;
 }
 table {
-  width: 300px;
+  width: 200px;
   text-align: left;
   margin-top: 2rem;
   margin-left: 1rem;
@@ -86,12 +87,13 @@ td {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
-  padding: 0.5rem;
+  padding: 0.8rem;
   font-size: 1rem;
+  text-align: left;
 }
 .buttonCustomDiv {
-  text-align: center;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .buttonCustom {
@@ -110,9 +112,6 @@ td {
   }
   h1 {
     padding-top: 1rem;
-  }
-  td {
-    text-align: center;
   }
 }
 </style>

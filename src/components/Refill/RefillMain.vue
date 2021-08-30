@@ -28,12 +28,12 @@ export default {
   flex-wrap: wrap;
   height: auto;
   width: 100vw;
-  background-color: red;
+  /* background-color: red; */
 }
 .stocks {
   background-color: rgb(235, 224, 193);
   flex: 1 1 25%;
-  min-width: 300px;
+  min-width: 200px;
 }
 .imgRefill {
   flex: 1 1 75%;
