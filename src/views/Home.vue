@@ -1,18 +1,41 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="StockDiv "><Stock/></div>
+    <InputComp/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import InputComp from '@/components/InputComp.vue'
+import Stock from '@/components/Refill/Stocks.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    InputComp,Stock
   }
 }
 </script>
+
+<style >
+.StockDiv{
+   /* background-color: rgb(235, 224, 193); */
+   /* height: 500px; */
+   display: flex;
+    padding: 2.5rem;
+    flex-direction: column;
+   
+}
+.home{
+  display: flex;
+  flex-wrap: wrap;
+}
+.home > * :nth-child(1){
+  flex: 1 1 30%;
+}
+.home > * :nth-child(2){
+  flex: 1 1 70%;
+}
+</style>
