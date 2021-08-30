@@ -24,42 +24,42 @@ export default new Vuex.Store({
       }
       state.stocks = obj;
     },
-    strongCoffee(state) {
+    strongCoffee(state, payload) {
       state.stocks = {
         ...state.stocks,
-        milk: state.stocks.milk - 10,
-        coffee: state.stocks.coffee - 8,
-        water: state.stocks.water - 4
+        milk: state.stocks.milk - 10 * payload.num,
+        coffee: state.stocks.coffee - 8 * payload.num,
+        water: state.stocks.water - 4 * payload.num
       }
     },
-    lightCoffee(state) {
+    lightCoffee(state, payload) {
       state.stocks = {
         ...state.stocks,
-        milk: state.stocks.milk - 15,
-        coffee: state.stocks.coffee - 4,
-        water: state.stocks.water - 4
+        milk: state.stocks.milk - 15 * payload.num,
+        coffee: state.stocks.coffee - 4 * payload.num,
+        water: state.stocks.water - 4 * payload.num
       }
     },
-    strongTea(state) {
+    strongTea(state, payload) {
       state.stocks = {
         ...state.stocks,
-        milk: state.stocks.milk - 10,
-        tea: state.stocks.tea - 8,
-        water: state.stocks.water - 8
+        milk: state.stocks.milk - 10 * payload.num,
+        tea: state.stocks.tea - 8 * payload.num,
+        water: state.stocks.water - 8 * payload.num
       }
     },
-    lightTea(state) {
+    lightTea(state, payload) {
       state.stocks = {
         ...state.stocks,
-        milk: state.stocks.milk - 15,
-        tea: state.stocks.tea - 4,
-        water: state.stocks.water - 4
+        milk: state.stocks.milk - 15 * payload.num,
+        tea: state.stocks.tea - 4 * payload.num,
+        water: state.stocks.water - 4 * payload.num
       }
     },
-    sugar(state) {
+    sugar(state, payload) {
       state.stocks = {
         ...state.stocks,
-        sugar: state.stocks.sugar - 5
+        sugar: state.stocks.sugar - 5 * payload.num
       }
     }
   },
