@@ -45,6 +45,7 @@ export default {
 #InputComp{
     display: flex;
     margin: 0 auto;
+    padding: 2.5rem;
     flex-direction: column;
      width: 40%;
 }
