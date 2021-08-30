@@ -32,11 +32,11 @@ export default {
 }
 .stocks {
   background-color: rgb(235, 224, 193);
-  flex: 1 1 30%;
+  flex: 1 1 25%;
   min-width: 300px;
 }
 .imgRefill {
-  flex: 1 1 70%;
+  flex: 1 1 75%;
   background-image: url("../../assets/images/side-image.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;

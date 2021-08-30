@@ -4,29 +4,29 @@
     <div class="stockList">
       <table>
         <tr>
-          <td>Milk</td>
-          <td>1000</td>
+          <td>Water</td>
+          <td>{{ water }}</td>
         </tr>
         <tr>
           <td>Milk</td>
-          <td>1000</td>
+          <td>{{ milk }}</td>
         </tr>
         <tr>
-          <td>Milk</td>
-          <td>1000</td>
+          <td>Tea</td>
+          <td>{{ tea }}</td>
         </tr>
         <tr>
-          <td>Milk</td>
-          <td>1000</td>
+          <td>Coffee</td>
+          <td>{{ coffee }}</td>
         </tr>
         <tr>
-          <td>Milk</td>
-          <td>1000</td>
+          <td>Sugar</td>
+          <td>{{ sugar }}</td>
         </tr>
       </table>
     </div>
     <div class="buttonCustomDiv">
-      <button class="buttonCustom">Refill Stock</button>
+      <button class="buttonCustom" @click="refill()">Refill Stock</button>
     </div>
   </div>
 </template>
@@ -37,14 +37,38 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    refill() {
+      this.$store.commit("refillShop");
+    },
+  },
+  computed: {
+    water() {
+      return this.$store.state.stocks.water;
+    },
+    milk() {
+      return this.$store.state.stocks.milk;
+    },
+    tea() {
+      return this.$store.state.stocks.tea;
+    },
+    coffee() {
+      return this.$store.state.stocks.coffee;
+    },
+    sugar() {
+      return this.$store.state.stocks.sugar;
+    },
+  },
 };
 </script>
 
 <style >
-h1 {
+.stockListMain h1 {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 2rem;
   text-align: center;
+  color: black;
+  font-weight: 700;
 }
 
 .stockList {
@@ -54,19 +78,20 @@ h1 {
 }
 table {
   width: 300px;
-  text-align: center;
+  text-align: left;
   margin-top: 2rem;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 td {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: black;
   padding: 0.5rem;
+  font-size: 1rem;
 }
 .buttonCustomDiv {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .buttonCustom {
@@ -79,6 +104,9 @@ td {
 @media (max-width: 768px) {
   .stockListMain {
     padding: 2rem;
+  }
+  table {
+    margin-left: 0;
   }
   h1 {
     padding-top: 1rem;
