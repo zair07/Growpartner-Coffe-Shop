@@ -70,7 +70,7 @@ export default {
       if (val < 0) {
         return "No negative Cups :)";
       } else if (isNaN(val)) {
-        return 0;
+        return "Enter Number of Cups";
       } else if (this.isOutOfStock()) {
         return "out of stock";
       } else return "Pay Rs. " + val;
