@@ -92,6 +92,7 @@ export default {
 }
 .stockList table {
   width: 200px;
+  max-width: 200px;
   text-align: left;
   margin-top: 2rem;
   margin-left: 1rem;
