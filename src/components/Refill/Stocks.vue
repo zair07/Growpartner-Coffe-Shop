@@ -75,7 +75,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 .stockListMain h1 {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 2rem;
@@ -90,13 +90,13 @@ export default {
   justify-content: center;
   align-items: center;
 }
-table {
+.stockList table {
   width: 200px;
   text-align: left;
   margin-top: 2rem;
   margin-left: 1rem;
 }
-td {
+.stockList td {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
@@ -120,10 +120,10 @@ td {
   .stockListMain {
     padding: 2rem;
   }
-  table {
+  .stockList table {
     margin-left: 0;
   }
-  h1 {
+  .stockListMain h1 {
     padding-top: 1rem;
   }
 }
