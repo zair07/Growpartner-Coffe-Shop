@@ -32,11 +32,11 @@ export default {
 }
 .stocks {
   background-color: rgb(235, 224, 193);
-  flex: 1 1 25%;
-  min-width: 200px;
+  flex: 1 1 30%;
+  min-width: 250px;
 }
 .imgRefill {
-  flex: 1 1 75%;
+  flex: 1 1 70%;
   background-image: url("../../assets/images/sun-tornado.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
