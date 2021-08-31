@@ -18,17 +18,12 @@ export default {
 </script>
 
 <style >
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+
 .refillmain {
   display: flex;
   flex-wrap: wrap;
   height: auto;
   width: 100vw;
-  /* background-color: red; */
 }
 .stocks {
   background-color: rgb(235, 224, 193);
@@ -37,7 +32,7 @@ export default {
 }
 .imgRefill {
   flex: 1 1 70%;
-  background-image: url("../../assets/images/sun-tornado.svg");
+  background-image: url("../../assets/images/coffe2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
