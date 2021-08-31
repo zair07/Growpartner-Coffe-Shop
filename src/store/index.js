@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    // main stocks state
     stocks: {
       water: 1000,
       milk: 1000,
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    // refill mutation 
     refillShop(state) {
       let obj = {
         water: 1000,
@@ -24,6 +26,7 @@ export default new Vuex.Store({
       }
       state.stocks = obj;
     },
+    // mutations for every drink type
     strongCoffee(state, payload) {
       state.stocks = {
         ...state.stocks,
