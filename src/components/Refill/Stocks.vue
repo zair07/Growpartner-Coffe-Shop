@@ -51,6 +51,7 @@ export default {
       setTimeout(() => {
         this.isRefill = true;
       }, 2000);
+      this.$alert("Stocks Refilled");
       this.$store.commit("refillShop");
     },
   },
