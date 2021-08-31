@@ -95,6 +95,9 @@ table {
   margin-top: 2rem;
   margin-left: 1rem;
 }
+table tr :nth-child(2){
+  text-align: end;
+}
 td {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
