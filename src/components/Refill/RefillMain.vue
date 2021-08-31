@@ -32,7 +32,7 @@ export default {
 }
 .stocks {
   background-color: rgb(235, 224, 193);
-  flex: 1 1 30%;
+  flex: 1 1 20%;
   min-width: 250px;
 }
 .imgRefill {
