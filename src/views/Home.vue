@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="StockDiv"><Stock /></div>
+    <div class="StockDiv"><Stock :isButton="false" /></div>
     <InputComp />
   </div>
 </template>
@@ -24,9 +24,8 @@ export default {
 .StockDiv {
   background-color: rgb(235, 224, 193);
   height: 100vh;
-  width: 303px;
+  width: 384px;
   display: flex;
-  padding: 2.5rem;
   flex-direction: column;
 }
 .home {
@@ -48,11 +47,7 @@ export default {
   }
   .home {
     display: flex;
-    /* flex-direction: column-reverse; */
+    flex-direction: column-reverse;
   }
 }
-/* @media screen and (max-width: 450px) {
-  .nav-links li {
-    margin: 15px 5px;
-  } */
 </style>

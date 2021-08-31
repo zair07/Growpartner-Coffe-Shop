@@ -81,7 +81,6 @@ export default {
 
       if (this.Cups > 0) {
         this.obj = { num: this.Cups };
-        this.amount = this.DrinkType * this.Cups;
         this.sugarAmt = 5 * this.Cups;
 
         if (!this.isOutOfStock()) {
@@ -101,8 +100,9 @@ export default {
           if (this.sugar && this.currStocks.sugar - 5 * this.Cups > 0) {
             this.$store.commit("sugar", { num: this.sugarAmt });
           }
-        }
         this.$alert("Yours Drink Is Ready");
+        }
+        
         this.sugar = false;
         this.DrinkType = "Select Drink Type";
         this.Cups = null;

@@ -31,11 +31,8 @@ export default {
   margin: 0;
 }
 .nav-links li {
-  margin: 20px 50px;
+  margin: 15px 70px;
   list-style: none;
-}
-.nav-links li:nth-child(1) {
-  margin-left: 10px;
 }
 .links {
   text-decoration: none;
@@ -44,18 +41,22 @@ export default {
 .links:hover {
   color: white;
 }
+ul {
+    margin: 0;
+    padding: 5px;
+  }
 @media screen and (max-width: 775px) {
   .nav-links li {
-    margin: 15px 1em;
+    margin: 15px auto;
+  }
+    .nav-links li:nth-child(1) {
+  margin-left: 10px;
   }
 }
 @media screen and (max-width: 450px) {
   .nav-links li {
-    margin: 15px 5px;
+    margin: 15px auto;
   }
-  ul {
-    margin: 0;
-    padding: 5px;
-  }
+  
 }
 </style>
