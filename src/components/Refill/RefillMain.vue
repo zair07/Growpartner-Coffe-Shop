@@ -1,7 +1,7 @@
 <template>
   <div class="refillmain">
     <div class="stocks">
-      <Stocks />
+      <Stocks :isButton="true" />
     </div>
     <div class="imgRefill"></div>
   </div>

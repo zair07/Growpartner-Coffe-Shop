@@ -25,7 +25,7 @@
         </tr>
       </table>
     </div>
-    <div class="buttonCustomDiv">
+    <div class="buttonCustomDiv" v-show="isButton">
       <button class="buttonCustom" @click="refill()">Refill Stock</button>
     </div>
   </div>
@@ -34,6 +34,9 @@
 <script>
 export default {
   name: "Stocks",
+  props: {
+    isButton: Boolean,
+  },
   data() {
     return {};
   },
