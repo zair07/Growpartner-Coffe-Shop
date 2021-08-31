@@ -26,7 +26,10 @@
       </table>
     </div>
     <div class="buttonCustomDiv" v-show="isButton">
-      <button class="buttonCustom" @click="refill()">Refill Stock</button>
+      <button class="buttonCustom" @click="refill()">
+        <span v-if="isRefill"> Refill Stock </span>
+        <span v-else>Refilling .....</span>
+      </button>
     </div>
   </div>
 </template>
@@ -38,10 +41,16 @@ export default {
     isButton: Boolean,
   },
   data() {
-    return {};
+    return {
+      isRefill: true,
+    };
   },
   methods: {
     refill() {
+      this.isRefill = false;
+      setTimeout(() => {
+        this.isRefill = true;
+      }, 2000);
       this.$store.commit("refillShop");
     },
   },
