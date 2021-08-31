@@ -34,7 +34,7 @@
           Pay Rs.0
         </button>
         <button id="PayBtn" type="button" v-else v-on:click="Calculate">
-          Pay Rs.{{ amountComputed }}
+          {{ amountComputed }}
         </button>
       </div>
     </form>
@@ -68,11 +68,12 @@ export default {
       let val =
         parseInt(this.Cups) * (parseInt(this.DrinkType) + parseInt(valSugar));
       if (val < 0) {
-        this.$alert("No negative Cups :)");
-        return 0;
+        return "No negative Cups :)";
       } else if (isNaN(val)) {
         return 0;
-      } else return val;
+      } else if (this.isOutOfStock()) {
+        return "out of stock";
+      } else return "Pay Rs. " + val;
     },
   },
   methods: {
