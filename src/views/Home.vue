@@ -39,4 +39,21 @@ export default {
 .home > * :nth-child(2){
   flex: 1 1 70%;
 }
+@media screen and (max-width: 770px) {
+  .StockDiv {
+    width: 100%;
+    height: auto;
+    padding-top:0 ;
+    padding-bottom:0 ;
+  }
+  .home{
+  display: flex;
+  /* flex-direction: column-reverse; */
+  }
+  
+}
+  /* @media screen and (max-width: 450px) {
+  .nav-links li {
+    margin: 15px 5px;
+  } */
 </style>

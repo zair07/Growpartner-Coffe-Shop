@@ -167,6 +167,18 @@ h3 {
 .main-heading{
 margin-top: 2rem;
 }
-
+@media screen and (max-width: 770px) {
+  #InputComp {
+    padding: 10px;
+    width: 90%;
+  }
+  
+}
+@media screen and (min-width: 770px) {
+  #InputComp {
+    width: 40%;
+  }
+  
+}
 
 </style>

@@ -96,7 +96,10 @@ export default {
   margin-top: 2rem;
   margin-left: 1rem;
 }
-.stockList td {
+table tr :nth-child(2) {
+  text-align: end;
+}
+td {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: black;
