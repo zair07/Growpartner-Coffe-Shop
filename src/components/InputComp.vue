@@ -46,13 +46,15 @@ export default {
   name: "InputComp",
   data() {
     return {
+      
       DrinkType: "Select Drink Type",
-      Cups: 0,
+      Cups: null,
       currStocks: undefined,
       obj: { num: 0 },
       amount: 0,
       sugarAmt: 0,
       sugar: false,
+      // Given Input Ingridients respective to Drinktype
       Ingrigent: [
         { m: 10, c: 8, w: 4, t: 0 },
         { m: 15, c: 4, w: 4, t: 0 },
@@ -77,14 +79,17 @@ export default {
     },
   },
   methods: {
-    Calculate() {
-      console.log(this.sugar);
 
+    Calculate() {
+      
       if (this.Cups > 0) {
         this.obj = { num: this.Cups };
         this.sugarAmt = 5 * this.Cups;
 
+// Calling the Function To check Out of Stock Condition
         if (!this.isOutOfStock()) {
+
+// Commmiting Chages in store with respect to Drink Type
           if (this.DrinkType == 100) {
             this.$store.commit("strongCoffee", this.obj);
             console.log("strongCoffee is Ready");
@@ -98,31 +103,33 @@ export default {
             this.$store.commit("lightTea", this.obj);
             console.log("lightTea is Ready");
           }
+// Checking Condition of Out of stock For sugar
           if (this.sugar && this.currStocks.sugar - 5 * this.Cups > 0) {
             this.$store.commit("sugar", { num: this.sugarAmt });
           }
-        this.$alert("Yours Drink Is Ready");
+// Main Function Terminate Here
+          this.$alert("Yours Drink Is Ready",'success','success');
         }
-        
+
         this.sugar = false;
         this.DrinkType = "Select Drink Type";
         this.Cups = null;
       } else {
-        this.$alert("Please Enter Valid Number Of Cups");
+        this.$alert("Please Enter Valid Number Of Cups",'warning','warning');
       }
     },
 
+// Checking Out off stock Condition
     isOutOfStock() {
+// geting States from Store
       this.currStocks = this.$store.state.stocks;
-
       if (this.DrinkType == 100) {
         if (
           this.currStocks.milk - this.Ingrigent[0].m * this.Cups < 0 ||
           this.currStocks.coffee - this.Ingrigent[0].c * this.Cups < 0 ||
           this.currStocks.water - this.Ingrigent[0].w * this.Cups < 0
         ) {
-          this.$alert("Ingridents Of StrongCoffee Goes Outoff Stock");
-
+          this.$alert("Ingridents Of Strong Coffee Goes Outoff Stock",'warning','warning');
           return true;
         }
       } else if (this.DrinkType == 75) {
@@ -131,8 +138,7 @@ export default {
           this.currStocks.coffee - this.Ingrigent[1].c * this.Cups < 0 ||
           this.currStocks.water - this.Ingrigent[1].w * this.Cups < 0
         ) {
-          this.$alert("Ingridents Of LightCoffee Goes Outoff Stock");
-
+          this.$alert("Ingridents Of Light Coffee Goes Outoff Stock",'warning','warning');
           return true;
         }
       } else if (this.DrinkType == 60) {
@@ -141,8 +147,7 @@ export default {
           this.currStocks.tea - this.Ingrigent[2].t * this.Cups < 0 ||
           this.currStocks.water - this.Ingrigent[2].w * this.Cups < 0
         ) {
-          this.$alert("Ingridents Of StrongTea Goes Outoff Stock");
-
+          this.$alert("Ingridents Of Strong Tea Goes Outoff Stock",'warning','warning');
           return true;
         }
       } else if (this.DrinkType == 50) {
@@ -151,11 +156,11 @@ export default {
           this.currStocks.tea - this.Ingrigent[3].t * this.Cups < 0 ||
           this.currStocks.water - this.Ingrigent[3].w * this.Cups < 0
         ) {
-          this.$alert("Ingridents Of LightTea Goes Outoff Stock");
-
+          this.$alert("Ingridents Of Light Tea Goes Outoff Stock",'warning','warning');
           return true;
         }
       }
+      // checking sugar condition
       if (this.sugar && this.currStocks.sugar - 5 * this.Cups < 0) {
         this.$alert("Sugar Goes Outoff Stock");
         return true;
@@ -168,7 +173,6 @@ export default {
 
 <style>
 #InputComp {
-  /* display: flex; */
   margin: 0 auto;
   padding: 2.5rem;
   flex-direction: column;
