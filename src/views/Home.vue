@@ -21,8 +21,9 @@ export default {
 
 <style >
 .StockDiv{
-   /* background-color: rgb(235, 224, 193); */
-   /* height: 500px; */
+   background-color: rgb(235, 224, 193);
+   height: 38.5rem;
+   width: 303px;
    display: flex;
     padding: 2.5rem;
     flex-direction: column;

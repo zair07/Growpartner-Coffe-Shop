@@ -6,14 +6,15 @@
       <div>
         <select class="DrinkType" v-model="DrinkType">
           <option selected>Select Drink Type</option>
-          <option value="1">Strong Coffee</option>
-          <option value="2">Light coffee</option>
-          <option value="3">Strong Tea</option>
-          <option value="4">Light Tea</option>
+          <option value=100>Strong Coffee</option>
+          <option value=75>Light coffee</option>
+          <option value=60>Strong Tea</option>
+          <option value=50>Light Tea</option>
         </select>
       </div>
       <input
         v-model="Cups"
+        onChange="this.Calculate"
         type="number"
         class="NoOfCups"
         placeholder="Enter no. of cupes"
@@ -21,11 +22,12 @@
         min="1"
       />
       <div class="WithSugar">
-        <input type="checkbox" value="5" />
+        <input type="checkbox" value="5" v-model="sugar" />
         <label for="WithSugar"> With Sugar </label>
       </div>
       <div>
-        <button id="PayBtn" type="button" v-on:click="Calculate">Pay Rs. 0</button>
+        <button id="PayBtn" type="button" v-if="DrinkType =='Select Drink Type'" >Pay Rs.0</button>
+       <button id="PayBtn" type="button" v-else v-on:click="Calculate">Pay Rs.{{DrinkType*Cups}}</button>
       </div>
     </form>
   </div>
@@ -40,6 +42,8 @@ export default {
       Cups: null,
       currStocks: undefined,
       obj: { num: 0 },
+      amount:0,
+      sugar:false,
       Ingrigent: [
         { m: 10, c: 8, w: 4, t: 0 },
         { m: 15, c: 4, w: 4, t: 0 },
@@ -50,16 +54,23 @@ export default {
   },
   methods: {
     Calculate() {
+      console.log(this.sugar);
+      
       if(this.Cups>0){
       this.currStocks = this.$store.state.stocks;
+      this.sugarStock = this.$store.state.sugar;
       this.obj={num:this.Cups}
+       this.amount=this.DrinkType*this.Cups;
       
       if(!this.isOutOfStock()){
-        if(this.DrinkType==1)  {this.$store.commit("strongCoffee", this.obj); console.log("strongCoffee is Ready")}
-        else if(this.DrinkType==2) {this.$store.commit("lightCoffee", this.obj); console.log("lightCoffee is Ready")}
-        else if(this.DrinkType==3) {this.$store.commit("strongTea", this.obj); console.log("strongTea is Ready")}
+        if(this.DrinkType==100)  {this.$store.commit("strongCoffee", this.obj); console.log("strongCoffee is Ready")}
+        else if(this.DrinkType==75) {this.$store.commit("lightCoffee", this.obj); console.log("lightCoffee is Ready")}
+        else if(this.DrinkType==60) {this.$store.commit("strongTea", this.obj); console.log("strongTea is Ready")}
         else {this.$store.commit("lightTea", this.obj); console.log("lightTea is Ready")}
-      }}
+      }
+      this.DrinkType="Select Drink Type";
+      this.Cups=null
+      }
       else{
         alert("Please Enter Valid Number Of Cups")
       }
@@ -67,40 +78,44 @@ export default {
   
   isOutOfStock() {
     this.currStocks = this.$store.state.stocks;
-    if (this.DrinkType == 1) {
+    if (this.DrinkType == 100) {
       if (
         (this.currStocks.milk )- this.Ingrigent[0].m * this.Cups < 0 ||
         (this.currStocks.coffee )- this.Ingrigent[0].c * this.Cups < 0 ||
         (this.currStocks.water )- this.Ingrigent[0].w * this.Cups < 0
       ) {
         alert("Ingridents Of StrongCoffee Goes Outoff Stock");
+        
         return true;
       }
-    } else if (this.DrinkType === "2") {
+    } else if (this.DrinkType == 75) {
       if (
         (this.currStocks.milk )- this.Ingrigent[1].m * this.Cups < 0 ||
         (this.currStocks.coffee )- this.Ingrigent[1].c * this.Cups < 0 ||
         (this.currStocks.water )- this.Ingrigent[1].w * this.Cups < 0
       ) {
         alert("Ingridents Of LightCoffee Goes Outoff Stock");
+        
         return true;
       }
-    } else if (this.DrinkType === "3") {
+    } else if (this.DrinkType == 60) {
       if (
         (this.currStocks.milk) - this.Ingrigent[2].m * this.Cups < 0 ||
         (this.currStocks.tea )- this.Ingrigent[2].t * this.Cups < 0 ||
         (this.currStocks.water) - this.Ingrigent[2].w * this.Cups < 0
       ) {
         alert("Ingridents Of StrongTea Goes Outoff Stock");
+        
         return true;
       }
-    } else if (this.DrinkType === "4") {
+    } else if (this.DrinkType == 50) {
       if (
         (this.currStocks.milk) - this.Ingrigent[3].m * this.Cups < 0 ||
         (this.currStocks.tea )- this.Ingrigent[3].t * this.Cups < 0 ||
         (this.currStocks.water )- this.Ingrigent[3].w * this.Cups < 0
       ) {
         alert("Ingridents Of LightTea Goes Outoff Stock");
+        
         return true;
       }
     }
@@ -152,5 +167,6 @@ h3 {
 .main-heading{
 margin-top: 2rem;
 }
+
 
 </style>
