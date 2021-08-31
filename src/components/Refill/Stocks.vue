@@ -26,6 +26,7 @@
       </table>
     </div>
     <div class="buttonCustomDiv" v-show="isButton">
+      <!-- condtional render for button span -->
       <button class="buttonCustom" @click="refill()">
         <span v-if="isRefill"> Refill Stock </span>
         <span v-else>Refilling .....</span>
@@ -46,6 +47,7 @@ export default {
     };
   },
   methods: {
+    // refill stock and settimeout for refilling loader
     refill() {
       this.isRefill = false;
       setTimeout(() => {
@@ -55,6 +57,7 @@ export default {
       this.$store.commit("refillShop");
     },
   },
+  // getting all computed values of each stock item
   computed: {
     water() {
       return this.$store.state.stocks.water;
@@ -76,6 +79,7 @@ export default {
 </script>
 
 <style scoped>
+/* scoped css for only this component so conflicts are avoided */
 .stockListMain h1 {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 2rem;
@@ -90,6 +94,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+/* table styling */
 .stockList table {
   width: 200px;
   max-width: 200px;
@@ -108,6 +113,7 @@ td {
   font-size: 1rem;
   text-align: left;
 }
+/* button div */
 .buttonCustomDiv {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -120,6 +126,7 @@ td {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
+/* changing padding */
 @media (max-width: 768px) {
   .stockListMain {
     padding: 2rem;

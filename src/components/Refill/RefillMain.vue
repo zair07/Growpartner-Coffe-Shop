@@ -1,6 +1,7 @@
 <template>
   <div class="refillmain">
     <div class="stocks">
+      <!-- passing the refill button on -->
       <Stocks :isButton="true" />
     </div>
     <div class="imgRefill"></div>
@@ -18,7 +19,7 @@ export default {
 </script>
 
 <style >
-
+/* making two col layout using flex */
 .refillmain {
   display: flex;
   flex-wrap: wrap;
@@ -39,6 +40,7 @@ export default {
 }
 
 @media (max-width: 768px) {
+  /* fixing the height and making image none */
   .imgRefill {
     height: 500px;
     background-image: none;
